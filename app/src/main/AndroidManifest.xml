@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindRoom">
         <activity
+            android:name=".models.view.login.RegisterView"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
