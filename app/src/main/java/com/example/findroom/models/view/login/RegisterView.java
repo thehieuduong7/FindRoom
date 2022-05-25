@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.findroom.R;
+
 public class RegisterView extends AppCompatActivity {
 
     @Override

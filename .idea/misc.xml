@@ -4,7 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/BackUp/Work/hk2nam3/Di Dong/FindRoom/app/src/main/res/layout/activity_main.xml" value="0.3625" />
-        <entry key="..\:/BackUp/Work/hk2nam3/Di Dong/FindRoom/app/src/main/res/layout/activity_register_view.xml" value="0.25271739130434784" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/drawable/ic__search.xml" value="0.121" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.121" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/layout/activity_detail_room.xml" value="0.264" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/layout/activity_item_room.xml" value="0.12" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/layout/activity_register_view.xml" value="0.176" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/layout/header.xml" value="0.4" />
+        <entry key="..\:/Download/HK6/ANDROID PROGAMING/FindRoom/app/src/main/res/layout/item_room.xml" value="0.264" />
       </map>
     </option>
   </component>

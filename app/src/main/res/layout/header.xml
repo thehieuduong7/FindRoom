@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@color/teal_700">
+
+    <LinearLayout
+        android:layout_width="310dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15sp"
+        android:layout_marginTop="7sp"
+        android:layout_marginBottom="7sp"
+        android:background="@color/white">
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic__search"
+            android:background="@color/white"
+            android:layout_marginTop="5sp"
+            android:layout_marginLeft="5dp">
+
+        </ImageButton>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="tìm trọ trên FindRoom"
+            android:layout_marginLeft="5sp"
+            android:layout_marginTop="5sp"
+            android:background="@android:color/transparent">
+
+        </EditText>
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/chat"
+        android:background="@color/teal_700"
+        android:layout_marginLeft="5sp"
+        >
+
+    </ImageButton>
+
+</LinearLayout>
