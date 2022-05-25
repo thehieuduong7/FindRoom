@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1031631106292",
+    "firebase_url": "https://androidproject-28238-default-rtdb.firebaseio.com",
+    "project_id": "androidproject-28238",
+    "storage_bucket": "androidproject-28238.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031631106292:android:68349657cccecf69296ea1",
+        "android_client_info": {
+          "package_name": "com.example.findroom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031631106292-4fvva8t16io1utuk0tuojsfe9p3qvdqv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmFk0J8vdcU5W-2rbtVxmnuTitPohBUbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031631106292-4fvva8t16io1utuk0tuojsfe9p3qvdqv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

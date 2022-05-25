@@ -12,7 +12,7 @@ public class RoomModel {
     private String status;
     private float area;
     private float deposit; // tien coc
-    private String location;
+    private String location;            //-> show
     private String note;
     private List<Image> images;
 
