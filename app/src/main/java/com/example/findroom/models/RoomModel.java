@@ -2,21 +2,36 @@ package com.example.findroom.models;
 
 import android.media.Image;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class RoomModel {
+public class RoomModel implements Serializable {
     private int id;
+    private int imgResoure;
     private String name;
     private String type;
     private float price;
     private String status;
     private float area;
+
+    public RoomModel(int imgResoure, String name, float price, String location) {
+        this.imgResoure = imgResoure;
+        this.name = name;
+        this.price = price;
+        this.location = location;
+    }
+
+    public int getImgResoure() {
+        return imgResoure;
+    }
+
     private float deposit; // tien coc
     private String location;            //-> show
     private String note;
     private List<Image> images;
 
-    public RoomModel() {
+    public RoomModel(int imgResoure) {
+        this.imgResoure = imgResoure;
     }
 
     public String getName() {
