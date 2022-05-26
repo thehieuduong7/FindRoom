@@ -58,6 +58,7 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.roomViewHolder
 
     private void onClickGoToRoomDetail(RoomModel room) {
         Intent intent =new Intent(mContext,RoomDetailActivity.class);
+
         Bundle bundle = new Bundle();
 
         bundle.putSerializable("object_room",room);

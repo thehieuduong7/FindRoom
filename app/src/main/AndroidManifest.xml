@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindRoom">
         <activity
+            android:name=".view.AddRoomActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.RoomDetailActivity"
             android:exported="false" />
         <activity
