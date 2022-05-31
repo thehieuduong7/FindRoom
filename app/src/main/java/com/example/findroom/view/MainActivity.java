@@ -5,12 +5,28 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.findroom.R;
+import com.example.findroom.controler.DatabaseControler;
+import com.example.findroom.controler.ImageConvert;
 import com.example.findroom.models.RoomModel;
 import com.example.findroom.view.roomAdapter;
 
+
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +34,25 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rcvData;
     private roomAdapter rAdapter ;
-
+    private Button tempAdd;
+    private ImageView test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // convert from bitmap to byte array
+
+
+        // get the base 64 string
+
+        ImageConvert img = new ImageConvert();
+        String str = img.convertImageToString();
+        Log.e("imageString",str);
+
+
+
+        // -------------------
         rcvData =findViewById(R.id.rcv_main);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -32,9 +61,31 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.ItemDecoration itemDecoration =new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         rcvData.addItemDecoration(itemDecoration);
 
+        tempAdd =findViewById(R.id.btn_add);
+        tempAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseControler db =new DatabaseControler();
+                RoomModel roomitem =new RoomModel(10,"cho thue nha tro",100000,"quận 1 ,thành phố Hồ Chí Minh");
+                db.PushDataRoom(roomitem);
+                db.ReadData();
+                //db.DeleteData("connect");
+                Intent intent =new Intent(MainActivity.this,AddRoomActivity.class);
+                startActivity(intent);
+            }
+        });
+
         rAdapter =new roomAdapter(this ,getListRoom());
 
         rcvData.setAdapter(rAdapter);
+    }
+
+
+
+    public byte[] getBytesFromBitmap(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
+        return stream.toByteArray();
     }
 
     private List<RoomModel> getListRoom() {

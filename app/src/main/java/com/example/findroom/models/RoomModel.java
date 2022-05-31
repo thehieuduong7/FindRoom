@@ -13,6 +13,10 @@ public class RoomModel implements Serializable {
     private float price;
     private String status;
     private float area;
+    private float deposit; // tien coc
+    private String location;            //-> show
+    private String note;
+    private List<Image> images;
 
     public RoomModel(int imgResoure, String name, float price, String location) {
         this.imgResoure = imgResoure;
@@ -21,14 +25,19 @@ public class RoomModel implements Serializable {
         this.location = location;
     }
 
+    public RoomModel(int id, String name, float price, String status, String location) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.status = status;
+        this.location = location;
+    }
+
     public int getImgResoure() {
         return imgResoure;
     }
 
-    private float deposit; // tien coc
-    private String location;            //-> show
-    private String note;
-    private List<Image> images;
+
 
     public RoomModel(int imgResoure) {
         this.imgResoure = imgResoure;
