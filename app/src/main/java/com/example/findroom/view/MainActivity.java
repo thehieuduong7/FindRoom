@@ -7,26 +7,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.findroom.R;
 import com.example.findroom.controler.DatabaseControler;
 import com.example.findroom.controler.ImageConvert;
 import com.example.findroom.models.RoomModel;
-import com.example.findroom.view.roomAdapter;
-
 
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,19 +34,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // convert from bitmap to byte array
-
-
-        // get the base 64 string
-
-        ImageConvert img = new ImageConvert();
-        String str = img.convertImageToString();
-        Log.e("imageString",str);
-
-
-
-        // -------------------
         rcvData =findViewById(R.id.rcv_main);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
