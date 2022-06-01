@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView.ItemDecoration itemDecoration =new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         rcvData.addItemDecoration(itemDecoration);
 
+
+
+
         tempAdd =findViewById(R.id.btn_add);
         tempAdd.setOnClickListener(new View.OnClickListener() {
             @Override

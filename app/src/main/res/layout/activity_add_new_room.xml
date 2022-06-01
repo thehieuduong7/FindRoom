@@ -107,7 +107,12 @@
                     android:inputType="text"
                     />
             </com.google.android.material.textfield.TextInputLayout>
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:id="@+id/test">
 
+            </ImageView>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_room_price"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
