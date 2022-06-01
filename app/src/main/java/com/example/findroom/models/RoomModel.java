@@ -16,7 +16,24 @@ public class RoomModel implements Serializable {
     private float deposit; // tien coc
     private String location;            //-> show
     private String note;
+    private List<String> lImage;
     private List<Image> images;
+
+    public RoomModel() {
+    }
+
+    public RoomModel(int id, String name, String type, float price, String status, float area, float deposit, String location, String note, List<String> lImage) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.status = status;
+        this.area = area;
+        this.deposit = deposit;
+        this.location = location;
+        this.note = note;
+        this.lImage = lImage;
+    }
 
     public RoomModel(int imgResoure, String name, float price, String location) {
         this.imgResoure = imgResoure;

@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:text="NHẬP PHÒNG"
+                android:text="ĐĂNG TIN"
                 android:textColor="#00202E"
                 android:textStyle="bold" />
 
@@ -47,57 +47,50 @@
                 android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:checkedButton="@+id/radio_button_1">
+                android:checkedButton="@+id/rb_type_tro">
 
                 <RadioButton
-                    android:id="@+id/radio_button_1"
+
+                    android:id="@+id/rb_type_tro"
                     style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-condensed-light"
-                    android:text="Loại phòng 1"
+                    android:text="Nhà Trọ"
+                    android:textSize="20dp"
+
+                    />
+
+                <RadioButton
+
+                    android:id="@+id/rb_type_chungcu"
+                    style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="Chung Cư"
                     android:textSize="20dp" />
 
                 <RadioButton
-                    android:id="@+id/radio_button_2"
+
+                    android:id="@+id/rb_type_ktx"
                     style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-condensed-light"
-                    android:text="Loại phòng 2"
+                    android:text="Ký Túc Xá"
                     android:textSize="20dp" />
 
                 <RadioButton
-                    android:id="@+id/radio_button_3"
-                    style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="sans-serif-condensed-light"
-                    android:text="Loại phòng 3"
-                    android:textSize="20dp" />
 
-                <RadioButton
-                    android:id="@+id/radio_button_4"
+                    android:id="@+id/rb_type_homestay"
                     style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="sans-serif-condensed-light"
-                    android:text="Loại phòng 4"
+                    android:text="HomeStyle"
                     android:textSize="20dp" />
             </RadioGroup>
-
-            <TextView
-                android:paddingTop="32dp"
-                android:paddingBottom="16dp"
-                android:id="@+id/Title_room_info"
-                style="@style/TextAppearance.MaterialComponents.Headline6"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="THÔNG TIN PHÒNG"
-                android:textColor="#001D2B"
-                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_room_name"
@@ -108,7 +101,7 @@
                 android:hint="Tên Phòng" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/room_name"
+                    android:id="@+id/txt_input_room_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -124,7 +117,7 @@
                 android:hint="Giá Phòng" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/room_price"
+                    android:id="@+id/txt_input_room_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -132,35 +125,62 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_room_area"
+                android:id="@+id/layout_room_note"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:hint="Diện Tích Phòng (m2)" >
+                android:hint="Note" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/room_area"
+                    android:id="@+id/txt_input_room_note"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_room_status"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            <TextView
+                android:id="@+id/statusroom"
+                style="@style/TextAppearance.MaterialComponents.Body2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Trạng Thái Phòng"
-                android:paddingBottom="16dp">
+                android:fontFamily="sans-serif-condensed-medium"
+                android:paddingBottom="6dp"
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/room_status"
+                android:text="Trạng thái phòng" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup_status"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:checkedButton="@+id/rb_status_controng">
+
+                <RadioButton
+
+                    android:id="@+id/rb_type_dachothue"
+                    style="@style/Widget.AppCompat.CompoundButton.RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="Đã thuê"
+                    android:textSize="20dp"
+
+                    />
+
+
+                <RadioButton
+                    android:layout_marginLeft="50dp"
+                    android:id="@+id/rb_status_controng"
+                    style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="Còn trống"
+                    android:textSize="20dp" />
+            </RadioGroup>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layout_room_deposit"
@@ -171,7 +191,7 @@
                 android:hint="Tiền Cọc" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/room_deposit"
+                    android:id="@+id/txt_input_room_deposit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -183,49 +203,119 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:hint="Trạng Thái Phòng" >
+                android:hint="Địa chỉ" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/room_location"
+                    android:id="@+id/txt_input_room_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layout_room_note"
+                android:id="@+id/layout_room_area"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:hint="Note" >
+                android:hint="Diện Tích Phòng (m2)" >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/room_note"
+                    android:id="@+id/txt_input_room_area"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/title_room_images"
-                style="@style/TextAppearance.MaterialComponents.Body2"
+            <LinearLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="Hình Ảnh Phòng" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context=".MainActivity">
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                app:srcCompat="@drawable/download" />
+                <Button
+                    android:id="@+id/select"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Chọn Hình Ảnh" />
+
+                <ImageSwitcher
+                    android:id="@+id/image"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_marginLeft="100dp" />
+
+                <LinearLayout
+
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!--click here to view previous image-->
+                    <Button
+                        android:id="@+id/previous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="Previous" />
+
+                    <!--click here to view next image-->
+                    <Button
+                        android:layout_marginLeft="50dp"
+                        android:id="@+id/next"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Next" />
+                </LinearLayout>
+
+
+                <TextView
+
+                    android:id="@+id/text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:orientation="horizontal"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content">-->
+<!--                <TextView-->
+<!--                    android:id="@+id/title_room_images"-->
+<!--                    style="@style/TextAppearance.MaterialComponents.Body2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:fontFamily="sans-serif-condensed-medium"-->
+<!--                    android:text="Hình Ảnh Phòng" />-->
+<!--                <Button-->
+<!--                    android:layout_marginLeft="20dp"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="upload">-->
+
+<!--                </Button>-->
+<!--            </LinearLayout>-->
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView"-->
+<!--                android:clickable="true"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="300dp"-->
+<!--                app:srcCompat="@drawable/download" />-->
             <Button
                 android:id="@+id/btn_submit"
                 android:backgroundTint="#229CCD"
-                android:text="Xác Nhận"
+                android:text="Thêm"
                 android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
