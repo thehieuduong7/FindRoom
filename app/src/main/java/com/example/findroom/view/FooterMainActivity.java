@@ -21,13 +21,8 @@ public class FooterMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_footer_main);
 
         add_room =findViewById(R.id.add_room);
-        btnTest =findViewById(R.id.btntext);
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(FooterMainActivity.this, "buton test", Toast.LENGTH_LONG).show();
-            }
-        });
+        btnTest =findViewById(R.id.btn_submit);
+
 
 
         add_room.setOnClickListener(new View.OnClickListener() {
