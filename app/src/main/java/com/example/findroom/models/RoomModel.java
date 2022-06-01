@@ -3,6 +3,7 @@ package com.example.findroom.models;
 import android.media.Image;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomModel implements Serializable {
@@ -16,13 +17,17 @@ public class RoomModel implements Serializable {
     private float deposit; // tien coc
     private String location;            //-> show
     private String note;
-    private List<String> lImage;
+    private ArrayList<String> lImage;
     private List<Image> images;
 
     public RoomModel() {
     }
 
-    public RoomModel(int id, String name, String type, float price, String status, float area, float deposit, String location, String note, List<String> lImage) {
+    public ArrayList<String> getlImage() {
+        return lImage;
+    }
+
+    public RoomModel(int id, String name, String type, float price, String status, float area, float deposit, String location, String note, ArrayList<String> lImage) {
         this.id = id;
         this.name = name;
         this.type = type;

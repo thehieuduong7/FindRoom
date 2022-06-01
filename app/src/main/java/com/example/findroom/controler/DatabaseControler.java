@@ -25,7 +25,7 @@ public class DatabaseControler {
 
     public void PushDataRoom(RoomModel roomitem){
 
-        myRef = database.getReference("room_info/room1");
+        myRef = database.getReference("room_info/roomfull");
         myRef.setValue(roomitem);
     }
 

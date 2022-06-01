@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,15 +21,24 @@ import android.widget.Toast;
 import android.widget.ViewSwitcher;
 
 import com.example.findroom.R;
+import com.example.findroom.controler.DatabaseControler;
+import com.example.findroom.controler.ImageConvert;
 import com.example.findroom.models.RoomModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AddRoomActivity extends AppCompatActivity {
 
+    private ArrayList<String> lImageString =new ArrayList<>();
+    private DatabaseControler db ;
     // ------ upload image ------------------
     Button select, previous, next;
     ImageSwitcher imageView;
@@ -48,14 +60,17 @@ public class AddRoomActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_room);
-
+        lImageString.clear();
         ChoiceImage();
         btnAddRoom = findViewById(R.id.btn_submit);
         btnAddRoom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                RoomModel room = getItemRoom();
+                db =new DatabaseControler();
+                db.PushDataRoom(room);
+                Log.e("add room","done");
+                Log.e("image rooom oke ",room.getlImage().get(1));
 
             }
         });
@@ -86,6 +101,17 @@ public class AddRoomActivity extends AppCompatActivity {
                     // increase the position by 1
                     position++;
                     imageView.setImageURI(mArrayUri.get(position));
+                    ImageConvert imageConvert =new ImageConvert(AddRoomActivity.this);
+                    ImageView test = findViewById(R.id.test);
+                    try {
+                        String t = imageConvert.fileUriToBase64(mArrayUri.get(position),AddRoomActivity.this.getContentResolver());
+                        Log.e("strImage",t);
+
+                        test.setImageBitmap(imageConvert.ConvertStringToBitmapImage(t));
+                    }catch (Exception e ){
+                        Log.e("er",e.toString());
+                    }
+
                 } else {
                     Toast.makeText(AddRoomActivity.this, "Last Image Already Shown", Toast.LENGTH_SHORT).show();
                 }
@@ -105,6 +131,7 @@ public class AddRoomActivity extends AppCompatActivity {
         });
 
         imageView = findViewById(R.id.image);
+
 
         // click here to select image
         select.setOnClickListener(new View.OnClickListener() {
@@ -130,29 +157,43 @@ public class AddRoomActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // When an Image is picked
+
+
         if (requestCode == PICK_IMAGE_MULTIPLE && resultCode == RESULT_OK && null != data) {
             // Get the Image from data
             if (data.getClipData() != null) {
                 ClipData mClipData = data.getClipData();
                 int cout = data.getClipData().getItemCount();
+
+                Log.e("cout",String.valueOf(cout));
+
                 for (int i = 0; i < cout; i++) {
                     // adding imageuri in array
                     Uri imageurl = data.getClipData().getItemAt(i).getUri();
                     mArrayUri.add(imageurl);
+
+                    Log.e("url",imageurl.toString());
                 }
                 // setting 1st selected image into image switcher
-                imageView.setImageURI(mArrayUri.get(0));
+
                 position = 0;
             } else {
                 Uri imageurl = data.getData();
                 mArrayUri.add(imageurl);
+                ImageConvert imageConvert =new ImageConvert(AddRoomActivity.this);
+                String t = imageConvert.fileUriToBase64(imageurl,AddRoomActivity.this.getContentResolver());
+                lImageString.add(t);
                 imageView.setImageURI(mArrayUri.get(0));
                 position = 0;
             }
+
+
         } else {
             // show this if no image is selected
             Toast.makeText(this, "You haven't picked Image", Toast.LENGTH_LONG).show();
+
         }
+
     }
 
     private String getTypeRoomStr() {
@@ -203,9 +244,8 @@ public class AddRoomActivity extends AppCompatActivity {
         return typeRoom;
     }
 
-    private RoomModel getItemRoom()
-    {
-        RoomModel roomModel = new RoomModel() ;
+    private RoomModel getItemRoom() {
+        RoomModel roomModel ;
 
         String rname ;
         String typeRoom ;
@@ -213,7 +253,7 @@ public class AddRoomActivity extends AppCompatActivity {
         String rStatus ;
         Float rArea ,rDeposit;
         String rLocation ,rNote;
-        List<String> rListImage ;
+        ArrayList<String> rListImage ;
 
         txtInputNameRoom =findViewById(R.id.txt_input_room_name);
         itxtArea =findViewById(R.id.txt_input_room_area);
@@ -231,6 +271,7 @@ public class AddRoomActivity extends AppCompatActivity {
         rLocation = itxtLocation.getText().toString();
         rNote = itxtNote.getText().toString();
 
+        roomModel =new RoomModel(1,rname,typeRoom,rPrice,rStatus,rArea,rDeposit,rLocation,rNote,lImageString);
         return roomModel;
     }
 }
