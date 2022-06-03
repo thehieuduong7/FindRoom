@@ -1,5 +1,6 @@
 package com.example.findroom.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,6 +10,9 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +22,8 @@ import com.example.findroom.R;
 import com.example.findroom.controler.DatabaseControler;
 import com.example.findroom.controler.ImageConvert;
 import com.example.findroom.models.RoomModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 
 import java.io.ByteArrayOutputStream;
@@ -26,6 +32,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private DatabaseControler db ;
+    private BottomNavigationView bottomNavigationView;
     private RecyclerView rcvData;
     private roomAdapter rAdapter ;
     private Button tempAdd;
@@ -43,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         rcvData.addItemDecoration(itemDecoration);
 
 
-
-
+        bottomNavigationView =findViewById(R.id.bottom_nav_view);
+        SetUpBottomNavigation();
         tempAdd =findViewById(R.id.btn_add);
         tempAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +78,53 @@ public class MainActivity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
         return stream.toByteArray();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.botton_nav_menu, menu);
+        return true;
+    }
+
+
+
+    public void SetUpBottomNavigation() {
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id) {
+                    case R.id.noti:
+
+                        Log.e("nice","noti");
+                        return true;
+                    case R.id.more:
+                        Log.e("nice","more");
+                        return true;
+                    case R.id.edit:
+                        try {
+                            Intent intent =new Intent(MainActivity.this,RoomDetailActivity.class);
+                            startActivity(intent);
+                        }catch (Exception e){
+                            Log.e("error",e.toString());
+                        }
+
+                        Log.e("nice","edit");
+                        return true;
+                    case R.id.home:
+
+                        Log.e("nice","home");
+                        return true;
+
+                    default:
+                        return false;
+                }
+            }
+        });
+    }
+
+
 
     private ArrayList<RoomModel> getListRoom() {
         db =new DatabaseControler();
