@@ -3,21 +3,34 @@ package com.example.findroom.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.MonthDisplayHelper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.findroom.R;
+import com.example.findroom.controler.ImageConvert;
 import com.example.findroom.models.RoomModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 public class RoomDetailActivity extends AppCompatActivity {
+
+    private EditText rName, rLocation, rPrice, rNote, rDeposit, rArea, rType ;
+
+    private ImageConvert imageConvert ;
+    private RoomModel lRoom ;
+
     private BottomNavigationView bottomNavigationView;
     private MenuItem item ;
     @Override
@@ -27,7 +40,23 @@ public class RoomDetailActivity extends AppCompatActivity {
         bottomNavigationView =findViewById(R.id.bottom_nav_view);
         bottomNavigationView.setSelectedItemId(R.id.edit);
         SetUpBottomNavigation();
+
+
+        // get data intent
+        lRoom = getDataIntent();
+        Log.e("data detail room" ,lRoom.getName());
     }
+
+    public RoomModel getDataIntent(){
+        Intent intent = getIntent();
+        RoomModel temp =(RoomModel) intent.getSerializableExtra("object_room");
+        return temp;
+    }
+
+    private void setContentDetailRoom(){
+
+    }
+
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
