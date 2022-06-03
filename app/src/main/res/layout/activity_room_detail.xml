@@ -10,29 +10,36 @@
     android:orientation="vertical"
     tools:ignore="NamespaceTypo">
     <TextView
+
+        android:layout_marginTop="10dp"
         android:textAlignment="center"
         android:id="@+id/Title"
+
         style="@style/TextAppearance.MaterialComponents.Headline4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:text="THÔNG TIN PHÒNG"
+
         android:textColor="#00202E"
         android:textStyle="bold">
 
     </TextView>
     <ScrollView
+
         android:paddingTop="20sp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="32dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="100dp"
         android:contentDescription="@string/appbar_scrolling_view_behavior"
         android:paddingRight="32dp"
         >
 
         <LinearLayout
+
+            android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -89,7 +96,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
-                        android:paddingTop="32dp"
+                        android:paddingBottom="20dp"
+                        android:paddingLeft="10dp"
                         android:textStyle="bold"
                         android:textSize="20sp"
                         android:text="Đây là tên phòng trọ" />
@@ -99,56 +107,107 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
 
-
-            <LinearLayout
-                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                card_view:cardElevation="2dp"
+                card_view:cardCornerRadius="15dp"
+                android:outlineSpotShadowColor="@color/black"
                 android:layout_width="match_parent"
+
                 android:layout_height="wrap_content">
-                <TextView
-                    android:id="@+id/title_room_type"
-                    style="@style/TextAppearance.MaterialComponents.Body2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:paddingTop="32dp"
-                    android:text="Loại Phòng: " />
-                <TextView
-                    android:id="@+id/tv_content"
-                    style="@style/TextAppearance.MaterialComponents.Body2"
+                <LinearLayout
+                    android:paddingBottom="20dp"
+                    android:paddingLeft="10dp"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed-medium"
-                    android:paddingTop="32dp"
-                    android:text="   ..." />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:text="Title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tv_detail_location"
+                        android:paddingTop="30dp"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:paddingBottom="6dp"
 
-                </com.google.android.material.textfield.TextInputEditText>
-            </LinearLayout>
-            <TextView
-                android:id="@+id/statusroom"
-                style="@style/TextAppearance.MaterialComponents.Body2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:paddingBottom="6dp"
+                        android:text="Location : " />
+                    <TextView
+                        android:id="@+id/tv_detail_area"
+                        android:paddingTop="30dp"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:paddingBottom="6dp"
 
-                android:text="Trạng thái phòng" />
+                        android:text="Area: " />
+                    <TextView
+                        android:id="@+id/tv_detail_room_type"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:paddingTop="30dp"
+                        android:text="Loại Phòng: " />
 
-            <Button
-                android:id="@+id/btn_submit"
-                android:backgroundTint="#229CCD"
-                android:text="Thêm"
-                android:textAlignment="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/tv_detail_price"
+                        android:paddingTop="30dp"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:paddingBottom="6dp"
+
+                        android:text="Price : " />
+                    <TextView
+                        android:id="@+id/tv_detail_status"
+                        android:paddingTop="30dp"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:paddingBottom="6dp"
+
+                        android:text="Trạng thái phòng : " />
+
+                    <TextView
+                        android:id="@+id/tv_detail_note"
+                        android:paddingTop="30dp"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:paddingBottom="6dp"
+
+                        android:text="Note: " />
+                    <TextView
+                        android:id="@+id/tv_detail_money_first"
+                        android:paddingTop="30dp"
+                        style="@style/TextAppearance.MaterialComponents.Body2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:paddingBottom="6dp"
+
+                        android:text="Tien coc: " />
+
+
+                    <Button
+                        android:id="@+id/btn_submit"
+                        android:backgroundTint="#229CCD"
+                        android:text="Thêm"
+                        android:layout_marginBottom="50dp"
+                        android:textAlignment="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
         </LinearLayout>
     </ScrollView>
 
@@ -159,6 +218,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
+
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="10dp"
         app:fabCradleVerticalOffset="10dp">
