@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class DatabaseControler {
     private FirebaseDatabase database ;
     private DatabaseReference myRef ;
@@ -25,17 +27,18 @@ public class DatabaseControler {
 
     public void PushDataRoom(RoomModel roomitem){
 
-        myRef = database.getReference("room_info/roomfull");
+        myRef = database.getReference("room_info/room_2");
         myRef.setValue(roomitem);
     }
 
     public void ReadData(){
-        myRef = database.getReference("connect");
+        myRef = database.getReference("room_info");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String value = snapshot.getValue(String.class);
-                Log.e("value",value);
+                RoomModel value = snapshot.getValue(RoomModel.class);
+
+                //Log.e("value",value);
             }
 
             @Override
@@ -43,6 +46,32 @@ public class DatabaseControler {
 
             }
         });
+
+
+    }
+
+    public ArrayList<RoomModel> ReadItemData() {
+        ArrayList<RoomModel> room =new ArrayList<>();
+        myRef = database.getReference("room_info");
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                room.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    RoomModel rItem = dataSnapshot.getValue(RoomModel.class);
+                    Log.e("DONE read data",rItem.getName().toString());
+                    room.add(rItem);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("DONE","NO DONE");
+
+            }
+        });
+        return room;
     }
 
     public void DeleteData(String path){
