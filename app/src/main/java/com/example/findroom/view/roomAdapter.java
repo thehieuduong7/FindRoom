@@ -3,6 +3,7 @@ package com.example.findroom.view;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +15,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.findroom.R;
+import com.example.findroom.controler.ImageConvert;
 import com.example.findroom.models.RoomModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class roomAdapter extends RecyclerView.Adapter<roomAdapter.roomViewHolder> {
 
-    private List<RoomModel> mListRoom;
+    private ArrayList<RoomModel> mListRoom;
     private Context mContext ;
 
-    public roomAdapter( Context mContext,List<RoomModel> mListRoom) {
+    public roomAdapter( Context mContext,ArrayList<RoomModel> mListRoom) {
         this.mListRoom = mListRoom;
         this.mContext = mContext;
     }
@@ -41,12 +44,14 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.roomViewHolder
         if (room == null){
             return;
         }
-
-        holder.imgRoom.setImageResource(room.getImgResoure());
+        ImageConvert cimg = new ImageConvert();
+        holder.imgRoom.setImageBitmap(cimg.ConvertStringToBitmapImage(room.getlImage().get(0)));
         holder.tvLabelRoom.setText(room.getName());
-        holder.tvPrice.setText(String.valueOf(room.getPrice()) );
-        holder.tvLocation.setText(room.getLocation());
 
+        //String a = String.format("%.2f tr/tháng" ,room.getPrice());
+        holder.tvPrice.setText(String.valueOf(room.getPrice()));
+        holder.tvLocation.setText(room.getLocation());
+        //Log.e("item ",String.valueOf(position));
         // bắt sự kiện click vào item để sang trang detail
         holder.layoutRoomItem.setOnClickListener(new View.OnClickListener() {
             @Override
