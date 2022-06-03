@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private RecyclerView rcvData;
     private roomAdapter rAdapter ;
-
+    private ArrayList<RoomModel> arrRoom ;
     private ImageView test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         // add room
+        arrRoom =getListRoom();
 
-
-        rAdapter =new roomAdapter(this ,getListRoom());
+        rAdapter =new roomAdapter(this ,arrRoom);
 
         rcvData.setAdapter(rAdapter);
     }
@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.edit:
                         try {
                             Intent intent =new Intent(MainActivity.this,RoomDetailActivity.class);
+                            intent.putExtra("lroom",arrRoom);
                             startActivity(intent);
                         }catch (Exception e){
                             Log.e("error",e.toString());
