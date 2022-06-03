@@ -102,12 +102,12 @@ public class AddRoomActivity extends AppCompatActivity {
                     position++;
                     imageView.setImageURI(mArrayUri.get(position));
                     ImageConvert imageConvert =new ImageConvert(AddRoomActivity.this);
-                    ImageView test = findViewById(R.id.test);
+
                     try {
                         String t = imageConvert.fileUriToBase64(mArrayUri.get(position),AddRoomActivity.this.getContentResolver());
                         Log.e("strImage",t);
 
-                        test.setImageBitmap(imageConvert.ConvertStringToBitmapImage(t));
+
                     }catch (Exception e ){
                         Log.e("er",e.toString());
                     }

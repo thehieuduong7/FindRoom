@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FindRoom">
         <activity
-            android:name=".view.FooterMainActivity"
-            android:exported="true" />
-        <activity
             android:name=".view.AddRoomActivity"
             android:exported="false" />
         <activity
