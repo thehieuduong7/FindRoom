@@ -18,7 +18,9 @@ import java.io.InputStream;
 
 public class ImageConvert extends AppCompatActivity {
     private Context context ;
+    public ImageConvert() {
 
+    }
     public ImageConvert(Context context) {
         this.context = context;
     }

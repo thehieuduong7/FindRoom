@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private DatabaseControler db ;
     private RecyclerView rcvData;
     private roomAdapter rAdapter ;
     private Button tempAdd;
@@ -72,16 +72,9 @@ public class MainActivity extends AppCompatActivity {
         return stream.toByteArray();
     }
 
-    private List<RoomModel> getListRoom() {
-        List<RoomModel> list =new ArrayList<>();
-
-
-        list.add(new RoomModel(R.drawable.roomgood, "this is girl", 10 ,"viet nam"));
-        list.add(new RoomModel(R.drawable.download, "this is good", 10 ,"viet nam"));
-        list.add(new RoomModel(R.drawable.roooom, "this is good", 10 ,"viet nam"));
-        list.add(new RoomModel(R.drawable.download, "this is good", 10 ,"viet nam"));
-        list.add(new RoomModel(R.drawable.download, "this is good", 10 ,"viet nam"));
-
-        return list;
+    private ArrayList<RoomModel> getListRoom() {
+        db =new DatabaseControler();
+        ArrayList<RoomModel> r = db.ReadItemData();
+        return r;
     }
 }
