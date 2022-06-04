@@ -7,8 +7,19 @@ public class UserModel {
     private String username;
     private String password;
     private String fullName;
-    private List<Integer> myRoomId;
-    private List<Integer> savedRoomId;
+    private List<String> myRoomId;
+    private List<String> savedRoomId;
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public UserModel(String sdt, String password, String fullName) {
+        this.sdt = sdt;
+        this.password = password;
+        this.fullName = fullName;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -33,19 +44,19 @@ public class UserModel {
         this.fullName = fullName;
     }
 
-    public List<Integer> getMyRoomId() {
+    public List<String> getMyRoomId() {
         return myRoomId;
     }
 
-    public void setMyRoomId(List<Integer> myRoomId) {
+    public void setMyRoomId(List<String> myRoomId) {
         this.myRoomId = myRoomId;
     }
 
-    public List<Integer> getSavedRoomId() {
+    public List<String> getSavedRoomId() {
         return savedRoomId;
     }
 
-    public void setSavedRoomId(List<Integer> savedRoomId) {
+    public void setSavedRoomId(List<String> savedRoomId) {
         this.savedRoomId = savedRoomId;
     }
 
