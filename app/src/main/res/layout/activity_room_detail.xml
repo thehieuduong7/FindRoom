@@ -131,7 +131,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:paddingBottom="6dp"
-
+                        android:textSize="18sp"
                         android:text="Location : " />
                     <TextView
                         android:id="@+id/tv_detail_area"
@@ -141,7 +141,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:paddingBottom="6dp"
-
+                        android:textSize="18sp"
                         android:text="Area: " />
                     <TextView
                         android:id="@+id/tv_detail_room_type"
@@ -150,6 +150,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:paddingTop="30dp"
+                        android:textSize="18sp"
                         android:text="Loại Phòng: " />
 
                     <TextView
@@ -160,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:paddingBottom="6dp"
-
+                        android:textSize="18sp"
                         android:text="Price : " />
                     <TextView
                         android:id="@+id/tv_detail_status"
@@ -170,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:paddingBottom="6dp"
-
+                        android:textSize="18sp"
                         android:text="Trạng thái phòng : " />
 
                     <TextView
@@ -181,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:paddingBottom="6dp"
-
+                        android:textSize="18sp"
                         android:text="Note: " />
                     <TextView
                         android:id="@+id/tv_detail_money_first"
@@ -191,7 +192,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:paddingBottom="6dp"
-
+                        android:textSize="18sp"
                         android:text="Tien coc: " />
 
 

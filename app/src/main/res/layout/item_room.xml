@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phòng trọ cao cấp"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="10sp">
 
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="5 triệu/tháng"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textColor="#E91E63"
             android:layout_marginTop="10sp">
         </TextView>

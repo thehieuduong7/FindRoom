@@ -48,8 +48,8 @@ public class roomAdapter extends RecyclerView.Adapter<roomAdapter.roomViewHolder
         holder.imgRoom.setImageBitmap(cimg.ConvertStringToBitmapImage(room.getlImage().get(0)));
         holder.tvLabelRoom.setText(room.getName());
 
-        //String a = String.format("%.2f tr/tháng" ,room.getPrice());
-        holder.tvPrice.setText(String.valueOf(room.getPrice()));
+        String a = String.format("%.2f tr/tháng" ,room.getPrice());
+        holder.tvPrice.setText(a);
         holder.tvLocation.setText(room.getLocation());
         //Log.e("item ",String.valueOf(position));
         // bắt sự kiện click vào item để sang trang detail
