@@ -49,7 +49,8 @@ public class LoginActivity extends AppCompatActivity {
     public static boolean logined ;
     EditText edtPhone, edtPass;
     TextView txtResetPass;
-    Button btnLogin;
+    Button btnLogin,btnRegister;
+
     FirebaseDatabase db;
     DatabaseReference myRef ;
     ImageView back;
@@ -71,7 +72,14 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        btnRegister =findViewById(R.id.btnRegister);
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,RegisterView.class);
+                startActivity(intent);
+            }
+        });
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {

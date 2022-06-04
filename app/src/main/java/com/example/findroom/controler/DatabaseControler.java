@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.findroom.models.RoomModel;
+import com.example.findroom.models.UserModel;
 import com.example.findroom.view.AddRoomActivity;
 import com.example.findroom.view.MainActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +32,10 @@ public class DatabaseControler {
         String room = String.valueOf(generator.nextInt(1000000));
         myRef = database.getReference("room_info/"+"r"+room);
         myRef.setValue(roomitem);
+    }
+    public void PushDataUser(UserModel user){
+        myRef = database.getReference("user/"+user.getSdt());
+        myRef.setValue(user);
     }
 
     public void ReadData(){

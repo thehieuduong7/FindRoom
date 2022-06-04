@@ -1,6 +1,11 @@
 package com.example.findroom.controler;
 
+import android.content.Intent;
 import android.util.Log;
+import android.widget.RemoteViews;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.example.findroom.models.UserModel;
 import com.google.firebase.database.DataSnapshot;
@@ -11,27 +16,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class RegisterController {
     private static final String TAG = "Register";
+
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference mRef = mDatabase.getReference();
+    private DatabaseReference mRef ;
 
     public RegisterController(){}
 
-    public void registerUser(UserModel user){
-        DatabaseReference userNameRef = mRef.child("Users").child(user.getUsername());
-        ValueEventListener eventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(!dataSnapshot.exists()) {
-                    userNameRef.setValue(user);
-                }
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d(TAG, databaseError.getMessage());
-            }
-        };
-        userNameRef.addListenerForSingleValueEvent(eventListener);
 
-    }
 }
