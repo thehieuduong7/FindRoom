@@ -14,13 +14,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.findroom.R;
 import com.example.findroom.controler.DatabaseControler;
-import com.example.findroom.controler.ImageConvert;
 import com.example.findroom.models.RoomModel;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,9 +26,9 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    static boolean logined;
     private FloatingActionButton btnAddRoom;
     private DatabaseControler db ;
     private BottomNavigationView bottomNavigationView;
@@ -43,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        logined =false;
         rcvData =findViewById(R.id.rcv_main);
         btnAddRoom =findViewById(R.id.fab_add_room);
         btnAddRoom.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +94,8 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
                 switch (id) {
                     case R.id.noti:
-
+                        Intent intentlogin = new Intent(MainActivity.this,LoginActivity.class);
+                        startActivity(intentlogin);
                         Log.e("nice","noti");
                         return true;
                     case R.id.more:
@@ -105,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.edit:
                         try {
-                            Intent intent =new Intent(MainActivity.this,RoomDetailActivity.class);
-                            intent.putExtra("lroom",arrRoom);
+                            Log.e("this is edit event","that good");
+                            Intent intent =new Intent(MainActivity.this, EditRoomDetailActivity.class);
                             startActivity(intent);
                         }catch (Exception e){
                             Log.e("error",e.toString());

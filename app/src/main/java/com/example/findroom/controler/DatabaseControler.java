@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class DatabaseControler {
     private FirebaseDatabase database ;
@@ -26,8 +27,9 @@ public class DatabaseControler {
     }
 
     public void PushDataRoom(RoomModel roomitem){
-
-        myRef = database.getReference("room_info/room_2");
+        Random generator = new Random();
+        String room = String.valueOf(generator.nextInt(1000000));
+        myRef = database.getReference("room_info/"+"r"+room);
         myRef.setValue(roomitem);
     }
 

@@ -3,6 +3,7 @@ package com.example.findroom.models;
 import java.util.List;
 
 public class UserModel {
+    private String sdt;
     private String username;
     private String password;
     private String fullName;
