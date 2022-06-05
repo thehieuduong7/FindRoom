@@ -4,7 +4,6 @@ import java.util.List;
 
 public class UserModel {
     private String sdt;
-    private String username;
     private String password;
     private String fullName;
     private List<String> myRoomId;
@@ -14,19 +13,18 @@ public class UserModel {
         return sdt;
     }
 
+    public UserModel() {
+    }
+
     public UserModel(String sdt, String password, String fullName) {
         this.sdt = sdt;
         this.password = password;
         this.fullName = fullName;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+
+
 
     public String getPassword() {
         return password;
@@ -63,7 +61,7 @@ public class UserModel {
     @Override
     public String toString() {
         return "UserModel{" +
-                "username='" + username + '\'' +
+
                 ", fullName='" + fullName + '\'' +
                 '}';
     }

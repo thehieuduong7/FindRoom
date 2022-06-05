@@ -8,6 +8,7 @@ import java.util.List;
 
 public class RoomModel implements Serializable {
     private int id;
+    private String rid ;
     private int imgResoure;
     private String name;
     private String type;
@@ -27,8 +28,8 @@ public class RoomModel implements Serializable {
         return lImage;
     }
 
-    public RoomModel(int id, String name, String type, float price, String status, float area, float deposit, String location, String note, ArrayList<String> lImage) {
-        this.id = id;
+    public RoomModel(String id, String name, String type, float price, String status, float area, float deposit, String location, String note, ArrayList<String> lImage) {
+        this.rid = id;
         this.name = name;
         this.type = type;
         this.price = price;

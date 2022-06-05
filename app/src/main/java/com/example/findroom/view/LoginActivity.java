@@ -102,26 +102,13 @@ public class LoginActivity extends AppCompatActivity {
         } else if (edtPass.getText().toString().equals("")) {
             Toast.makeText(LoginActivity.this, "Vui lòng nhập mật khẩu", Toast.LENGTH_SHORT).show();
         }
-        String sdt ="02827485";
+        String sdt =edtPhone.getText().toString();
+        String pw = edtPass.getText().toString();
+        Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        startActivity(intent);
         myRef = db.getReference("user").child(sdt);
-        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.child("pw").getValue().toString().trim().equals("123")){
-                    Log.e("login","done");
-                    logined = true;
-                    Log.e("login",String.valueOf(logined));
-                }else{
-                    Log.e("login pw: ",snapshot.child("pw").getValue().toString());
-                    Toast.makeText(LoginActivity.this, "Nhập Lại Mật Khẩu", Toast.LENGTH_SHORT).show();
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
     }
 

@@ -28,7 +28,11 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    static boolean logined;
+    static boolean logined ;
+    static boolean ishome = true ;
+    static String rid ;
+    static String idUser ;
+    static ArrayList<RoomModel> rRoomu;
     private FloatingActionButton btnAddRoom;
     private DatabaseControler db ;
     private BottomNavigationView bottomNavigationView;
@@ -103,9 +107,8 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.edit:
                         try {
-                            Log.e("this is edit event","that good");
-                            Intent intent =new Intent(MainActivity.this, EditRoomDetailActivity.class);
-                            startActivity(intent);
+                            ishome =false ;
+
                         }catch (Exception e){
                             Log.e("error",e.toString());
                         }

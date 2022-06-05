@@ -271,7 +271,7 @@ public class AddRoomActivity extends AppCompatActivity {
         rLocation = itxtLocation.getText().toString();
         rNote = itxtNote.getText().toString();
 
-        roomModel =new RoomModel(1,rname,typeRoom,rPrice,rStatus,rArea,rDeposit,rLocation,rNote,lImageString);
+        roomModel =new RoomModel("1",rname,typeRoom,rPrice,rStatus,rArea,rDeposit,rLocation,rNote,lImageString);
         return roomModel;
     }
 }
