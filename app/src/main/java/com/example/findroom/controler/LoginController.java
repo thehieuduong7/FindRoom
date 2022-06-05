@@ -16,26 +16,26 @@ public class LoginController {
 
     public LoginController(){}
 
-    public void registerUser(UserModel user){
-        DatabaseReference userNameRef = mRef.child("Users").child(user.getUsername());
-        ValueEventListener eventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                UserModel dbUser = dataSnapshot.getValue(UserModel.class);
-                if(user.getPassword().equals(dbUser.getPassword())){
-                    //Login thanh cong
-                }
-                else{
-                    //Sai mat khau
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d(TAG, databaseError.getMessage());
-            }
-        };
-        userNameRef.addListenerForSingleValueEvent(eventListener);
-
-    }
+//    public void registerUser(UserModel user){
+//        DatabaseReference userNameRef = mRef.child("Users").child(user.getUsername());
+//        ValueEventListener eventListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                UserModel dbUser = dataSnapshot.getValue(UserModel.class);
+//                if(user.getPassword().equals(dbUser.getPassword())){
+//                    //Login thanh cong
+//                }
+//                else{
+//                    //Sai mat khau
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.d(TAG, databaseError.getMessage());
+//            }
+//        };
+//        userNameRef.addListenerForSingleValueEvent(eventListener);
+//
+//    }
 }

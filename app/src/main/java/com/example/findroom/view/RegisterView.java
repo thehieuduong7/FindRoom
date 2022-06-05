@@ -21,8 +21,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class RegisterView<_> extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class RegisterView extends AppCompatActivity {
+    private FirebaseDatabase database ;
+    private DatabaseReference myRef ;
+
     private RegisterController cRegis;
+    private static final String TAG = "Register";
     private FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference mRef ;
     Button btnLogin, btnRegis ;
@@ -40,16 +46,19 @@ public class RegisterView<_> extends AppCompatActivity {
         Log.e("test",edSdt.getText().toString());
 
         btnRegis.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                userModel =new UserModel(edSdt.getText().toString().trim(),edPw.getText().toString().trim(),edName.getText().toString().trim());
-                Log.e("regis:",edName.getText().toString());
-                Log.e("regis:",edSdt.getText().toString());
-                Log.e("regis:",edRpw.getText().toString());
-                Log.e("regis:",userModel.getSdt());
-                Regis(userModel);
-            }
-        });
+                                        @Override
+                                        public void onClick(View v) {
+                                            database = FirebaseDatabase.getInstance();
+                                            userModel = new UserModel(edSdt.getText().toString().trim(), edPw.getText().toString().trim(), edName.getText().toString().trim());
+                                            Log.e("regis:", edName.getText().toString());
+                                            Log.e("regis:", edSdt.getText().toString());
+                                            Log.e("regis:", edRpw.getText().toString());
+                                            Log.e("regis:", userModel.getSdt());
+                                            //Regis(userModel);
+                                            cdb.PushDataUser(userModel);
+                                            Toast.makeText(RegisterView.this, "Register success", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,27 +69,30 @@ public class RegisterView<_> extends AppCompatActivity {
         });
     }
 
-    private void Regis(UserModel user){
-        mRef = mDatabase.getReference("user");
-        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.e("test n",snapshot.child(user.getSdt().toString()).getValue().toString());
-//                if(snapshot.child(user.getSdt()).getValue().equals(user.getSdt())){
-//                    Toast.makeText(RegisterView.this, "Số điện thoại đã được sử dụng", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    cdb.PushDataUser(user);
+//    private void Regis(UserModel user){
+//        DatabaseReference userNameRef = mRef.child("Users").child(user.getUsername());
+//        ValueEventListener eventListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                UserModel dbUser = dataSnapshot.getValue(UserModel.class);
+//                if(user.getPassword().equals(dbUser.getPassword())){
+//                    Log.e("login","sc");
 //                }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("done",user.getSdt());
-            }
-        });
-
-    }
+//                else{
+//                    Log.e("login","fail");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//                Log.d(TAG, databaseError.getMessage());
+//            }
+//        };
+//        userNameRef.addListenerForSingleValueEvent(eventListener);
+//
+//
+//
+//    }
 
 
 
